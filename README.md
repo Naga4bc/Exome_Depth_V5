@@ -13,7 +13,7 @@ This pipeline automates CNV detection from BAM files using ExomeDepth, with supp
 - **Multi-platform BED file support**: Auto-selects appropriate target regions based on sample naming
 - **Gene-specific analysis**: Generates plots and analysis for specified genes
 - **Comprehensive logging**: Timestamped logs for monitoring and debugging
-- **Batch processing**: Processes multiple sample sets from a single input file
+- **Multi processing**: Processes multiple sample sets from a single input file
 
 ## Requirements
 
