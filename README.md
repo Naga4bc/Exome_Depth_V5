@@ -20,7 +20,6 @@ This pipeline automates CNV detection from BAM files using ExomeDepth, with supp
 ### System Requirements
 - Linux system with Docker installed
 - User with sudo privileges for Docker execution
-- Minimum 8GB RAM recommended
 - Storage space for BAM files and output results
 
 ### Docker Image
@@ -31,7 +30,7 @@ This pipeline automates CNV detection from BAM files using ExomeDepth, with supp
 1. Clone or download the script:
 ```bash
 # Download the main script
-wget [script-url] -O Exome_Depth_CNACall_V5.R
+wget https://github.com/Naga4bc/Exome_Depth_V5/blob/main/Exome_Depth_CNACall_V5.R -O Exome_Depth_CNACall_V5.R
 ```
 
 2. Ensure Docker is installed and running:
@@ -40,7 +39,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-3. Set up the required directory structure:
+3. Set up the required directory structure [e.g. bioinfo4]:
 ```bash
 mkdir -p /home/bioinfo4/Patient_Samples/Exome_Depth_Dockerization
 cd /home/bioinfo4/Patient_Samples/Exome_Depth_Dockerization
@@ -52,19 +51,19 @@ cd /home/bioinfo4/Patient_Samples/Exome_Depth_Dockerization
 
 1. **`sample_genelist.txt`** - Sample and gene specifications
    ```
-   SAMPLE1,SAMPLE2,SAMPLE3:GENE1,GENE2,GENE3
+   YH2A4-F-D-FEV2F2both-DB423-ILS-HO-019-S1,DB-423-YH4AG-F-D-FEV2F2both-ILS-HO-017-S1,DB-423-YHKAA-F-D-FEV2F2both-ILS-HO-017-S1,YH2AB-F-D-FEV2F2both-DB423-ILS-LO-027-S1:ERBB2
    SAMPLE4,SAMPLE5,SAMPLE6:GENE4,GENE5
    ```
    Format: `main_sample,control_sample1,control_sample2:gene1,gene2,gene3`
 
 2. **`projects.txt`** - List of BaseSpace project names
    ```
-   Project_Name_1
-   Project_Name_2
+   ILS_Dubai_Clinical_August_2025
+   Ob_4bc_somatic_September_25
    Project_Name_3
    ```
 
-3. **BAM files** - Located in BaseSpace project structure:
+3. **BAM files** - Located in BaseSpace project structure within docker:
    ```
    /workspace/basespace/Projects/[PROJECT_NAME]/AppResults/[SAMPLE_ID]/Files/[SAMPLE_ID].bam
    ```
@@ -77,7 +76,7 @@ cd /home/bioinfo4/Patient_Samples/Exome_Depth_Dockerization
 
 ## Usage
 
-### Basic Usage
+### Basic Usage(b4)
 ```bash
 # Navigate to the working directory
 cd /home/bioinfo4/Patient_Samples/Exome_Depth_Dockerization
@@ -187,18 +186,3 @@ tail -f /workspace/ExomeDepth_log.txt
 - Docker runtime
 - Linux environment with BaseSpace data structure
 
-## Citation
-
-If you use this pipeline in your research, please cite:
-- ExomeDepth: Plagnol V, Curtis J, Epstein M, et al. A robust model for read count data in exome sequencing experiments and implications for copy number variant calling. Bioinformatics. 2012;28(21):2747-2754.
-
-## Support
-
-For issues and questions:
-1. Check the log file for detailed error messages
-2. Verify input file formats match the specifications
-3. Ensure all required files are in the correct locations
-
-## License
-
-Please check with the original authors for licensing information.
