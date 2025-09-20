@@ -174,6 +174,7 @@ tail -f /workspace/ExomeDepth_log.txt
   - Added automatic Docker activation
   - Improved logging and error handling
   - Auto-selection of BED files and parameters
+  - @Nagaraj k
 
 - **Original** (Dec 21, 2024): Initial version by Vyomesh J & Bhumika P
 
